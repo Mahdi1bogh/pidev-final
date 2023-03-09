@@ -1,0 +1,88 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Tournois{% endblock %}
+
+
+{% block body %}
+    
+
+      <!-- Begin page -->
+        <div id="layout-wrapper">
+
+
+            <!-- ========== App Menu ========== -->
+           
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+            <h1>Tournois</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tournoi.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ tournoi.title }}</td>
+            </tr>
+            <tr>
+                <th>DateTour</th>
+                <td>{{ tournoi.dateTour ? tournoi.dateTour|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>dateFin</th>
+                <td>{{ tournoi.dateFin ? tournoi.dateFin|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ tournoi.image }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ tournoi.description }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ tournoi.localisation }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ tournoi.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_tournois_index') }}">back to list</a>
+
+    <a href="{{ path('app_tournois_edit', {'id': tournoi.id}) }}">edit</a>
+
+    {{ include('tournois/_delete_form.html.twig') }}
+
+               
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        
+
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

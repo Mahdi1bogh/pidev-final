@@ -1,0 +1,118 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Tournois{% endblock %}
+{% block stylesheet %}
+     <link rel="shortcut icon" type="image/x-icon" href="{{asset('front-office/img/favicon.png')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/odometer.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/meanmenu.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/default.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/responsive.css')}}">
+        <link rel="apple-touch-icon" sizes="57x57" href="{{asset('assets/img/favicons/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('assets/img/favicons/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('assets/img/favicons/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('assets/img/favicons/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('assets/img/favicons/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('assets/img/favicons/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('assets/img/favicons/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('assets/img/favicons/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets/img/favicons/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('assets/img/favicons/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets/img/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('assets/img/favicons/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/img/favicons/favicon-16x16.png')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
+   
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/slick.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/centerImage.css')}}">
+    {% endblock %}
+{% block body %}
+<div class="breadcumb-wrapper" data-bg-src="{{asset('uploads/tournois/' ~ tournoi.image)}}"><div class="container"><div class="breadcumb-content"><h2 class="tlt fix" data-in-effect="fadeInLeft">Tournois <span>details</span></h2><ul class="breadcumb-menu"></ul></div></div></div>
+ <div class="brand-area brand-bg">
+            <div class="container">
+                <div class="row brand-active">
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo01.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo02.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo03.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo04.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo05.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo06.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<section class="area-bg-one"><div class="container"><div class="event-details"><div class="centerImage"><div class="centerImage" id="eventimgslide" data-slide-show="1" data-md-slide-show="1"></div><div class="vs-icon-box d-none d-md-block"></div></div><div class="row gy-30 pt-40 align-items-center justify-content-between"><div class="col-lg-7"><div class="event-head"><div class="date"><span class="day">{{ tournoi.dateTour ? tournoi.dateTour|date('d') : '' }}</span> <span class="month">{{ tournoi.dateTour ? tournoi.dateTour|date('m') : '' }}</span></div><div class="title-info"><h2 class="vs-info-box_title">{{ tournoi.title }}</h2><p class="event-info"><i class="fal fa-clock"></i>Time: {{ tournoi.dateTour ? tournoi.dateTour|date('h') : '' }} AM</p></div></div></div><div class="col-auto"><div class="btn-group"><a href="https://calendar.google.com/" class="vs-btn">Enregister en calendrier</a><form action="{{path('app_participer',{'id': tournoi.id})}}" method="POST"> <button   class="vs-btn">Participer</button></div></div></div><div class="event-content"><p>{{ tournoi.description }} </p></div><div class="row"><div class="col-lg-4"><div class="vs-info-box"><h3 class="vs-info-box_title">Tournois Info</h3><ul class="vs-info-box_content"><li><h5>Localisation</h5><span>{{ tournoi.localisation }}<br></span></li><li><a class="fw-bold" href="https://www.google.com/maps"><i class="fas fa-map-marker-alt"></i> Voir Localisation dans map</a></li></ul></div></div><div class="col-lg-4"><div class="vs-info-box"><h3 class="vs-info-box_title">Details</h3><ul class="vs-info-box_content"><li><h5>Date:</h5><span>{{ tournoi.dateTour ? tournoi.dateTour|date('Y-m-d') : '' }}</span></li><li><h5>Time:</h5><span>{{ tournoi.dateTour ? tournoi.dateTour|date('h') : '' }}AM </span></li></ul></div></div><div class="col-lg-4"><div class="vs-info-box"><h3 class="vs-info-box_title">Type</h3><ul class="vs-info-box_content"><li><h4 class="fw-semibold">{{ tournoi.type }}</h4></li></ul></div></div></div><div class="event-location mt-30">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.7252288471077!2d89.22872551898243!3d24.00547810054722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe9b97badc6151%3A0x30b048c9fb2129bc!2sAngfuzsoft!5e0!3m2!1sen!2sbd!4v1638077118980!5m2!1sen!2sbd" allowfullscreen="" loading="lazy"></iframe></div></div><div class="event-nav"></div></div></section>
+        
+{% endblock %}
+{% block js %}
+    <!-- JS here -->
+  <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{asset('front-office/js/vendor/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('front-office/js/popper.min.js')}}"></script>
+    <script src="{{asset('front-office/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front-office/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/slick.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.meanmenu.min.js')}}"></script>
+    <script src="{{asset('front-office/js/wow.min.js')}}"></script>
+    <script src="{{asset('front-office/js/aos.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.lettering.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.textillate.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.odometer.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('front-office/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('front-office/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('front-office/js/plugins.js')}}"></script>
+    <script src="{{asset('front-office/js/main.js')}}"></script>
+
+    <script src="{{asset('assets/js/jquery-3.5.0.min.js')}}"></script>
+    <script src="{{asset('assets/js/slick.min.js')}}"></script><script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('assets/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('src="assets/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
+    <script src="{{asset('assets/js/vscustom-carousel.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('assets/js/tilt.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/ajax-mail.js')}}"></script>
+    <script src="{{asset('assets/js/main.min.js')}}"></script>
+     {% endblock %}

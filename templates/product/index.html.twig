@@ -1,0 +1,56 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <h1>Product index</h1>
+    <ul style="margin-top:100px;margin-left:300px ">
+        <div style="display:flex">
+        <a style="margin-right:20px" href={{path("app_product_index")}}>All products</a>
+        <a href={{path("app_product_new")}}>Add product </a>
+        
+
+        </div>
+    </ul>
+    <table  style="margin-left:300px;margin-top:20px" class="table">
+    
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <div style="width:900px;height:500px;margin-left:200px" id="product-stats">
+    <canvas id="product-chart"></canvas>
+</div>
+
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.Qty }}</td>
+                <td>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}">show</a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_product_new') }}">Create new</a>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Hello AdminDashbordController!{% endblock %}
+
+{% block body %}
+
+
+<a href="{{ path('app_home')}}" type="button"  class="btn btn-outline-success" > Retour a la page d'acceuil </a>
+	<table class="table">
+		<thead id="user-table">
+			<tr>
+				<th>Id</th>
+				<th>email</th>
+				<th>Nom</th>
+                <th>Prenom</th>
+                <th>date_naissance</th>
+                <th>Adresse</th>
+                 <th>Photo de profile</th>
+                 
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in user_tab %}
+				<tr>
+					<td>{{ user.id }}</td>
+
+					<td>{{ user.email }}</td>
+					<td>
+                         {{ user.nom }}
+
+						
+						{#<a href="{{ path('app_category_d_edit', {'id': category_d.id}) }}">
+							<button type="button" class="btn btn-outline-danger">Edit</button>
+						</a> #}
+					</td>
+                    <td>{{ user.prenom }}</td>
+                    
+                    <td>{{ user.Adresse }}</td>
+
+                    <td><a href="{{ path('app_admin_delete', {'id': user.id}) }}">
+							<button type="button" class="btn btn-outline-success">Bloquer utilisateur</button>
+						</a></td>
+                    
+                  <td> <img src="{{ asset('uploads/' ~ user.image)}}" class="img-fluid img-thumbnail mt-4 mb-2" style="width: 150px;height:150px;"></td>
+                  
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+            
+		</tbody>
+	</table>
+	 <script src="{{asset('back-office/js/searchUser.js')}}"></script>
+	
+
+{% endblock %}

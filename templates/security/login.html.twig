@@ -1,0 +1,28 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+{% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+		
+		<button  class="btn btn-outline-danger" onclick="location.reload()">Rafraichir la page</button>
+		
+    {% endif %}
+							<form action="{{ path('app_login') }}" method="post">
+								<label for="username">Email:</label>
+								<input type="text" id="email" name="email" value=" "class= 'form-control'>
+
+								<label for="password">Password:</label>
+								<input type="password" id="password" name="password" class= 'form-control'>
+
+								{# If you want to control the URL the user is redirected to on success#}
+								  <input type="hidden" name="app_home" value="{{ path('app_home') }}">   
+
+								<button type="submit"  class="btn btn-outline-danger mt-3">login</button>
+							</form>
+			{# <p>{{ remaining_attempts  }} of {{ max_attempts }} attempts remaining.</p> #}
+    			
+       {#  <p>You have exceeded the maximum number of login attempts. Please try again later.</p> #}
+    			
+{% endblock %}

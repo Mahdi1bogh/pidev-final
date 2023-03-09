@@ -1,0 +1,29 @@
+{% extends 'base-back.html.twig' %}
+
+{% block body %}
+    <h1 style="margin-top:100px;margin-left:500px">Order {{ order.id }}</h1>
+    <table style="margin-left:500px">
+        <tbody>
+            <tr>
+                <th>Address</th>
+                <td>{{ order.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Total Price</th>
+                
+            </tr>
+            <tr>
+                <th>Order Items</th>
+                <td>
+                    <ul>
+                        {% for orderItem in order.orderItem %}
+                            <li>
+                                {{ orderItem.prod.getTitle() }} - Qty: {{ orderItem.qty }} - Price: {{ orderItem.prod.getPrice() }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

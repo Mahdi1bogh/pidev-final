@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+
+
+<!-- Mirrored from themesbrand.com/velzon/html/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Apr 2022 11:27:08 GMT -->
+<head>
+
+    <meta charset="utf-8" />
+    <title>Dashboard | Velzon - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" /> 
+    {% block css %}
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{asset('back-office/images/favicon.ico')}}">
+    <!-- jsvectormap css -->
+    <link href="{{asset('back-office/libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!--Swiper slider css-->
+    <link href="{{asset('back-office/libs/swiper/swiper-bundle.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Layout config Js -->
+    <script src="{{asset('back-office/js/layout.js')}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{asset('back-office/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{asset('back-office/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{asset('back-office/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{asset('back-office/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+     <link href="{{asset('back-office/css/style.css')}}" rel="stylesheet" type="text/css" />
+    {% endblock %}
+
+
+</head>
+{% block menu%}
+    <div id="layout-wrapper">
+      
+        <!-- ========== App Menu ========== -->
+        <div class="app-menu navbar-menu">
+            <!-- LOGO -->
+            
+
+            <div id="scrollbar">
+                <div class="container-fluid">
+
+                    <div id="two-column-menu">
+                    </div>
+                    <ul class="navbar-nav" id="navbar-nav">
+                        <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="sidebarDashboards">
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">CLUB&Terrain</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarDashboards">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{{path ('app_terrain_index')}}" class="nav-link" data-key="t-analytics"> Terrain</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{path ('app_club_index')}}"  class="nav-link" data-key="t-crm"> CLUB </a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </li> <!-- end Dashboard Menu -->
+                    </ul>
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        {% endblock %}
+
+
+
+
+    </div>
+
+<body>
+
+
+  {% block body %}
+ <h1 class ="affich">Les avis sur cette club </h1>
+
+   
+       
+<div class ="avis affich">
+            
+        {% for avi in avis %}
+           <div class="mydesign">
+               <h2> {{ avi.id}} : <p> {{ avi.contenu }}</p> <h2>
+              </div>
+            
+                   
+                
+            
+        {% else %}
+           
+                <td colspan="3">no records found</td>
+            
+        {% endfor %}
+       
+  
+
+    <a href="{{ path('app_avis_new', {'id': club.id}) }}">Ajouter un Avis</a>
+</div> 
+{% endblock %}
+
+
+
+
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+
+    <!-- JAVASCRIPT -->
+
+    {% block js %}
+    <!-- JAVASCRIPT -->
+    <script src="{{asset('back-office/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('back-office/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{asset('back-office/libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{asset('back-office/libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{asset('back-office/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+    <script src="{{asset('back-office/js/plugins.js')}}"></script>
+    <!-- apexcharts -->
+    <script src="{{asset('back-office/libs/apexcharts/apexcharts.min.js')}}"></script>
+    <!-- Vector map-->
+    <script src="{{asset('back-office/libs/jsvectormap/js/jsvectormap.min.js')}}"></script>
+    <script src="{{asset('back-office/libs/jsvectormap/maps/world-merc.js')}}"></script>
+    <!--Swiper slider js-->
+    <script src="{{asset('back-office/libs/swiper/swiper-bundle.min.js')}}"></script>
+    <!-- Dashboard init -->
+    <script src="{{asset('back-office/js/pages/dashboard-ecommerce.init.js')}}"></script>
+    <!-- App js -->
+    <script src="{{asset('back-office/js/app.js')}}"></script>
+    {% endblock %}
+
+</body>
+
+
+<!-- Mirrored from themesbrand.com/velzon/html/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Apr 2022 11:27:17 GMT -->
+</html>

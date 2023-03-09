@@ -1,0 +1,4 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn" href ="{{ path('app_avis_index', {'id': club.id}) }} ">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

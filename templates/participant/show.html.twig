@@ -1,0 +1,66 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Participant{% endblock %}
+
+{% block body %}
+    
+
+      <!-- Begin page -->
+        <div id="layout-wrapper">
+
+
+            <!-- ========== App Menu ========== -->
+           
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+           <h1>Participant</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ participant.id }}</td>
+            </tr>
+            <tr>
+                <th>DateP</th>
+                <td>{{ participant.dateP ? participant.dateP|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            
+            
+          
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_participant_index') }}" class="btn btn-primary waves-effect waves-light" >back to list</a>
+
+    <a href="{{ path('app_participant_edit', {'id': participant.id}) }}">edit</a>
+
+    {{ include('participant/_delete_form.html.twig') }}
+
+               
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        
+
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

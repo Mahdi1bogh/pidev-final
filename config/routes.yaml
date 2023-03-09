@@ -1,0 +1,14 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+login:
+    path: /login
+    controller: app\Controller\HomeController::index9
+
+logout:
+    path: /logout
+
+generate_pdf:
+    path: /clubs/pdf
+    controller: App\Controller\ClubController::generatePdfAction

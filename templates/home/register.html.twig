@@ -1,0 +1,11 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+ {{ form_start(formUser, { 'attr': {'novalidate': 'novalidate'} }) }}
+        {{ form_widget(formUser) }}
+       
+        <button type="submit" class="btn btn-primary">Register</button>
+    {{ form_end(formUser) }}
+{% endblock %}

@@ -1,0 +1,320 @@
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %} Acceuil {% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheet %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('front-office/img/favicon.png')}}">
+    <!-- Place favicon.ico in the root directory -->
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{asset('front-office/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/odometer.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/meanmenu.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/default.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/responsive.css')}}">
+
+    {% endblock %}
+    <!-- apps/frontend/templates/layout.php -->
+ 
+  
+</head>
+</head>
+
+<body>
+
+{% block body %}
+ <!-- preloader -->
+    <div id="preloader">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <img src="{{asset('front-office/img/icon/preloader.svg')}}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- preloader-end -->
+
+    <!-- header-area -->
+    <header>
+        <div class="header-top-area d-none d-lg-block">
+            <div class="container-fluid container-full-padding">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="header-top-offer">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header-top-right">
+                            <div class="header-social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                   
+                                </ul>
+                            </div>
+                            <div class="header-top-action">
+                                <ul>
+                                    <li>
+                                        <div class="header-top-mail">
+                                            <p><span>|</span><i class="far fa-envelope"></i><a
+                                                    href="https://themebeyond.com/cdn-cgi/l/email-protection#ee87808881ae89838f8782c08d8183"><span
+                                                        class="__cf_email__"
+                                                        data-cfemail="a0c9cec6cfe0c7c5c3cfc9cec6cf8ec3cfcd">tir-x@gmail.com</span></a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sticky-header" class="main-header">
+            <div class="container-fluid container-full-padding">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main-menu">
+                            <nav>
+                                <div class="logo">
+                                    <a href="index-2.html"><img src="{{asset('front-office/img/logo/logo8.png')}}" alt="Logo"></a>
+                                </div>
+                                <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
+                                    <ul
+                                </div>
+                                <div class="header-action">
+                                    <ul>
+                                       
+                                                    
+                                            <ul class="minicart">
+                                                <li class="d-flex align-items-start">
+                                                    
+
+                                                    <div class="del-icon">
+                                                        <a href="#">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                
+                                                
+                                            </ul>
+                                        </li>
+                                        <li class="header-search"><a href="#" data-toggle="modal"
+                                                data-target="#search-modal"><i class="fas fa-search"></i></a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="mobile-menu"></div>
+                    </div>
+                    <!-- Modal Search -->
+                    <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <form>
+                                    <input type="text" placeholder="Search here...">
+                                    <button><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-area-end -->
+    
+    <!-- main-area -->
+    <main class="container">
+    <h1>Les avis sur cette club </h1>
+
+   
+       
+<div class ="avis">
+            
+        {% for avi in avis %}
+           <div class="mydesign">
+               <h2> {{ avi.id}} : <p> {{ avi.contenu }}</p> <h2>
+              </div>
+            
+                   
+                
+            
+        {% else %}
+           
+                <td colspan="3">no records found</td>
+            
+        {% endfor %}
+       
+  
+
+    <a href="{{ path('app_avis_new', {'id': club.id}) }}">Ajouter un Avis</a>
+</div> 
+  </main>
+    <!-- main-area-end -->
+   
+    <!-- footer-area -->
+    <footer>
+        <div class="footer-top footer-bg">
+            <!-- newsletter-area -->
+           
+            <!-- newsletter-area-end -->
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-widget mb-50">
+                            <div class="footer-logo mb-35">
+                                <a href="index.html"><img src="{{asset('front-office/img/logo/logo.png')}}" alt=""></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Application de gestion des clubs et de vente des produits de tir sportif.</p>
+                                <div class="footer-contact">
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i> <span>Address : </span>Tunis Ariana 
+                                          
+                                            </li>
+                                        <li><i class="fas fa-headphones"></i> <span>Phone : </span>+99 999 999</li>
+                                        <li><i class="fas fa-envelope-open"></i><span>Email : </span><a
+                                                href="https://themebeyond.com/cdn-cgi/l/email-protection"
+                                                class="__cf_email__"
+                                                data-cfemail="bdd4d3dbd2fdd8c5d8d0cdd1d893ded2d0">tir-x@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>Pages</h5>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>
+                                    Besoin d'aide?</h5>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>
+                                    Suivez-nous</h5>
+                            </div>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="footer-fire"><img src="{{asset('front-office/img/images/footer_fire.png')}}" alt=""></div>
+            <div class="footer-fire footer-fire-right"><img src="{{asset('front-office/img/images/footer_fire.png')}}" alt=""></div>
+        </div>
+        
+    </footer>
+    <!-- footer-area-end -->
+
+
+<script type="text/javascript"><!--
+
+jQuery(document).ready(function($){
+
+    $('#search-form').submit(function(e){
+
+        e.preventDefault();
+        $('#search-results').html("");
+
+        $.get("{{ path('search') }}/" + input, function(data, textStatus, xhr){
+
+            if ("object" !== typeof data || null === data) {
+                alert("Unexpected response from server.");
+                return;
+            }
+
+            if (!data.hasOwnProperty("html") || typeof data.html != "string" || (data.html = data.html.trim()).length < 1) {
+                alert("Empty response from server.");
+                return;
+            }
+
+            $('#search-results').html(data.html);
+
+        }).fail(function(xhr, textStatus, errorThrown){
+
+            var error = "Unknown error occurred.";
+            if ("object" === typeof xhr && null !== xhr && xhr.hasOwnProperty("responseJSON") && "object" === typeof xhr.responseJSON && xhr.responseJSON.hasOwnProperty("error") && "string" === typeof xhr.responseJSON.error && xhr.responseJSON.error.trim().length >= 1) {
+                error = xhr.responseJSON.error.trim();
+            } else if ("string" === typeof errorThrown && errorThrown.trim().length >= 1) {
+                error = errorThrown.trim();
+            }
+
+            alert(error);
+
+        });
+
+    });
+
+});
+
+--></script>
+
+    {% block js %}
+    <!-- JS here -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{asset('front-office/js/vendor/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('front-office/js/popper.min.js')}}"></script>
+    <script src="{{asset('front-office/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front-office/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/slick.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.meanmenu.min.js')}}"></script>
+    <script src="{{asset('front-office/js/wow.min.js')}}"></script>
+    <script src="{{asset('front-office/js/aos.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.lettering.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.textillate.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.odometer.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('front-office/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('front-office/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('front-office/js/plugins.js')}}"></script>
+    <script src="{{asset('front-office/js/main.js')}}"></script>
+    <script src="{{ asset('front-office/js/search.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+     {% endblock %}
+      {% endblock %}
+      
+</body>
+
+
+
+</html>

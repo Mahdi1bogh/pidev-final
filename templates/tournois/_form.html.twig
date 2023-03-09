@@ -1,0 +1,58 @@
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title, {'attr': {'class': 'inp', 'placeholder': 'title'}}) }}
+        {{ form_errors(form.title) }}
+    </div>
+     <div class="form-group">
+       
+        {{ form_label(form.dateTour) }}
+        {{ form_widget(form.dateTour, {'attr': {'class': 'inp', 'placeholder': 'dateTour'}}) }}
+        {{ form_errors(form.dateTour) }}
+    </div>
+      <div class="form-group">
+       
+        {{ form_label(form.dateFin) }}
+        {{ form_widget(form.dateFin, {'attr': {'class': 'inp', 'placeholder': 'dateFin'}}) }}
+        {{ form_errors(form.dateFin) }}
+    </div>
+
+    <div class="form-group">
+       
+        {{ form_label(form.photo) }}
+        {{ form_row(form.photo, {'attr': {'class': 'inp', 'placeholder': 'photo'}}) }}
+        {{ form_errors(form.photo) }}
+    </div>
+ 
+       <div class="form-group">
+       
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'inp', 'placeholder': 'description'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+       <div class="form-group">
+       
+        {{ form_label(form.localisation) }}
+        {{ form_widget(form.localisation, {'attr': {'class': 'inp', 'placeholder': 'localisation'}}) }}
+        {{ form_errors(form.localisation) }}
+    </div>
+         <div class="form-group">
+       
+        {{ form_label(form.type) }}
+        {{ form_widget(form.type, {'attr': {'class': 'inp', 'placeholder': 'type'}}) }}
+        {{ form_errors(form.type) }}
+    </div>
+       
+   
+    <button class="btn">{{ button_label|default('Save') }}</button>
+   
+    
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+</div>
+
+

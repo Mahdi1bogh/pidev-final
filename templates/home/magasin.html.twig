@@ -1,0 +1,268 @@
+{# {% extends 'base-front.html.twig' %}
+
+{% block title %}Product List{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <form>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search for products...">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                    <h5>Filter By</h5>
+                    <div class="form-group">
+                        <label for="categorySelect">Category</label>
+                        <select class="form-control" id="categorySelect">
+                            <option>All</option>
+                            {% for c in categories %}
+                               <option>{{c}}</option>
+                            {% endfor %}
+                           
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priceSelect">Price</label>
+                        <select class="form-control" id="priceSelect">
+                            <option>All</option>
+                            <option>Less than $50</option>
+                            <option>$50 - $100</option>
+                            <option>$100 - $200</option>
+                            <option>More than $200</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                </form>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for product in produits %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                            <a href="#"><img style="height: 200px; object-fit: cover;" src="{{ product.img }}" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">{{ product.title }}</a>
+                                </h4>
+                                <h5>${{ product.price }}</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between">
+                                    <small class="text-muted">{{ product.category }}</small>
+                                    <div class="text-warning">
+                                        {% for i in range(1,product.rating) %}
+                                            <i class="fas fa-star"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <a href="#" >View Details</a>
+                                    <a href="{{path("cart_add", {id: product.id})}}"  class="add-to-cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="{{ path('cart_wishlist_add', { 'productId': product.id }) }}" ><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} #}
+{# {% extends 'base-front.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <form id="filter-form">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search for products..." id="search-input">
+                    <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <h5>Filter By</h5>
+                <div class="form-group">
+                    <label for="categorySelect">Category</label>
+                    <select class="form-control" id="category-select">
+                        <option>All</option>
+                        {% for c in categories %}
+                           <option>{{c}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="priceSelect">Price</label>
+                    <select class="form-control" id="price-select">
+                        <option>All</option>
+                        <option>Less than $50</option>
+                        <option>$50 - $100</option>
+                        <option>$100 - $200</option>
+                        <option>More than $200</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+        </div>
+        <div class="col-lg-9">
+            <div class="row" id="product-list">
+               {% for product in produits %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                            <a href="#"><img style="height: 200px; object-fit: cover;" src="{{ product.img }}" alt=""></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">{{ product.title }}</a>
+                                </h4>
+                                <h5>${{ product.price }}</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between">
+                                    <small class="text-muted">{{ product.category }}</small>
+                                    <div class="text-warning">
+                                        {% for i in range(1,product.rating) %}
+                                            <i class="fas fa-star"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <a href="#" >View Details</a>
+                                    <a href="{{path("cart_add", {id: product.id})}}"  class="add-to-cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="{{ path('cart_wishlist_add', { 'productId': product.id }) }}" ><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{{ dump(produits) }}
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function() {
+        // Handle filter form submission
+        $('#filter-form').submit(function(event) {
+            event.preventDefault();
+            filterProducts();
+        });
+
+        // Handle category or price change
+        $('#category-select, #price-select').change(function() {
+            filterProducts();
+        });
+
+        // Handle search input change
+        $('#search-input').keyup(function() {
+            filterProducts();
+        });
+    });
+
+    // Function to filter products based on selected filters
+    function filterProducts() {
+        var search = $('#search-input').val();
+        var category = $('#category-select').val();
+        var price = $('#price-select').val();
+        console.log(category);
+        $.ajax({
+            type: 'POST',
+            url: "{{ path('app_filter_products' ,{ 'category': '18' })}}",
+            data: {
+                search: search,
+                category: category,
+                price: price
+            },
+            dataType: 'json',
+            success: function(response) {
+                $('#product-list').html(response.html);
+                console.log("success",response);
+            },
+            error: function(xhr, status, error) {
+                console.log('faiiled',xhr.responseText);
+
+            }
+        });
+    }
+</script>
+{% endblock %} #}
+{% extends 'base-front.html.twig' %}
+
+{% block body %}
+    <h1>Product List</h1>
+
+   <form class="row" id="filter-form">
+    <div class="form-group col-md-4">
+        <label for="category">Category:</label>
+        <select name="category" id="category" class="form-control">
+            <option value="">All</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="min-price">Minimum Price:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input type="number" name="minPrice" id="min-price" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group col-md-4">
+        <label for="max-price">Maximum Price:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+            </div>
+            <input type="number" name="maxPrice" id="max-price" class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group col-md-12 text-center">
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </div>
+</form>
+
+    <div class="row" id="product-list">
+        {% for product in produits %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                            <a href="#"><img style="height: 200px; object-fit: cover;" src="{{ product.img }}" alt=""></a>
+                            <div class="card-body">
+                                <h4 style="color:black!important" class="card-title">
+                                    <a href="#">{{ product.title }}</a>
+                                </h4>
+                                <h5 style="color:black!important">${{ product.price }}</h5>
+                            </div>
+                            <div class="card-footer">
+                                <div class="d-flex justify-content-between">
+                                    <small class="text-muted">{{ product.category }}</small>
+                                    <div class="text-warning">
+                                        {% for i in range(1,product.rating) %}
+                                            <i class="fas fa-star"></i>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <a href="#" >View Details</a>
+                                    <a href="{{path("cart_add", {id: product.id})}}"  class="add-to-cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                                    <a href="{{ path('cart_wishlist_add', { 'productId': product.id }) }}" ><i class="far fa-heart"></i></a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    {% endfor %}
+    </div>
+{% endblock %}
+

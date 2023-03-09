@@ -1,0 +1,27 @@
+<h1 align="center">Liste des Participants</h1><hr>
+<table border="10" class="display table table-bordered" id="hidden-table-info">
+
+    <tr>
+        <td style="color:red"> Id participant </td>
+        <td style="color:red"> Nom </td>
+        <td style="color:red"> Prenom </td>
+        <td style="color:red"> Numéro Téléphone </td>
+        <td style="color:red"> Tournois </td>
+        <td style="color:red"> Date participation </td>
+        
+
+    </tr>
+    {% for participant in participants %}
+        <tr>
+            <td>{{ participant.id }}</td>
+            <td>{{ participant.users.nom }}</td>
+            <td>{{ participant.users.prenom }}</td>
+            <td>{{ participant.users }}</td>
+            <td>{{ participant.tournois.title }}</td>
+            <td>{{ participant.dateP ? participant.dateP|date('Y-m-d H:i:s') : '' }}</td>
+            
+
+        </tr>
+
+    {% endfor %}
+</table>

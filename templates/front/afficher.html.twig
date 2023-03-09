@@ -1,0 +1,62 @@
+<section class="inner-page">
+      <div class="container">
+        <h1>Les clubs</h1>
+
+     <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Name</th>
+                <th>Location</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+         {% for club in clubs %}
+            <tr>
+                
+                <td>{{ club.name }}</td>
+                <td>{{ club.location }}</td>
+            </tr>
+         {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+         {% endfor %}
+        </table>
+        
+      </div>
+    </section>
+     <section class="inner-page">
+      <div class="container">
+         <h1>Les terrains</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for terrain in terrains %}
+            <tr>
+                <td>{{ terrain.id }}</td>
+                <td>{{ terrain.type }}</td>
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+        
+      </div>
+    </section>
+
+  </main><!-- End #main -->

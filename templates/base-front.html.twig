@@ -1,0 +1,611 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %} Acceuil {% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block stylesheet %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('front-office/img/favicon.png')}}">
+    <!-- Place favicon.ico in the root directory -->
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{{asset('front-office/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/animate.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/fontawesome-all.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/odometer.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/meanmenu.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/default.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('front-office/css/responsive.css')}}">
+    {% endblock %}
+</head>
+
+<body>
+
+    <!-- preloader -->
+    <div id="preloader">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <img src="{{asset('front-office/img/icon/preloader.svg')}}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- preloader-end -->
+
+    <!-- header-area -->
+    <header>
+        <div class="header-top-area d-none d-lg-block">
+            <div class="container-fluid container-full-padding">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="header-top-offer">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="header-top-right">
+                            <div class="header-social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                   
+                                </ul>
+                            </div>
+                            <div class="header-top-action">
+                                <ul>
+                                
+                                    <li>
+                                        <div class="header-top-mail">
+                                            <p><span>|</span><i class="far fa-envelope"></i><a
+                                                    href="https://themebeyond.com/cdn-cgi/l/email-protection#ee87808881ae89838f8782c08d8183"><span
+                                                        class="__cf_email__"
+                                                        data-cfemail="a0c9cec6cfe0c7c5c3cfc9cec6cf8ec3cfcd">tir-x@gmail.com</span></a>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="header-user-login">
+                                        {% if app.user %}
+                                            <a href={{path('app_logout')}}><i class="fas fa-user"></i>Logout </a>
+                                        {% else %}
+                                        <a href={{path('app_login')}}><i class="fas fa-user"></i>Se connecter</a>
+                                           
+                                        {% endif %}
+                                              <a href={{path('app_signup')}}><i class="fas fa-user"></i>Creer Compte</a>
+                                              {% if is_granted('ROLE_ADMIN') %}
+                                            <a href={{path('app_admin')}}><i class="fas fa-user"></i>Accés Dashboard </a>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sticky-header" class="main-header">
+            <div class="container-fluid container-full-padding">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main-menu">
+                            <nav>
+                                <div class="logo">
+                                    <a href="index-2.html"><img src="{{asset('front-office/img/logo/logo8.png')}}" alt="Logo"></a>
+                                </div>
+                                <div id="mobile-menu" class="navbar-wrap d-none d-lg-flex">
+                                    <ul>
+                                        <li><a href={{path('app_home')}}>ACCEUIL</a></li>
+                                        <li><a href={{path('app_club_indexx')}}>CLUB</a></li>
+                                        <li><a  href="{{path('app_tournois')}}">TOURNOIS</a></li>
+                                        <li><a href={{path('app_home_magasin')}}>MAGASIN</a></li>
+                                        <li><a href={{path('app_reclamation')}}>RECLAMATION</a></li>
+                                      
+                                        <li><a href={{path('app_about')}}>ABOUT</a></li>
+                                         
+                                          <li><a href={{path('app_profile')}}>Profile</a></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="header-action">
+                                    <ul>
+                                        <li class="header-shop-cart">
+                                        <a href={{path('cart_index')}}>
+                                        <i
+                                                    class="fas fa-shopping-basket"></i></a>
+                                            <ul class="minicart">
+                                                <li class="d-flex align-items-start">
+                                                    <div class="cart-img">
+                                                        <a href="#">
+                                                            <img src="{{asset('front-office/img/product/product_img03.jpg')}}" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="cart-content">
+                                                        <h4>
+                                                            <a href="#">gilet de tir fair</a>
+                                                        </h4>
+                                                        <div class="cart-price">
+                                                            <span class="new">80.00DNT</span>
+                                                            <span>
+                                                                <del>80.00DNT</del>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="del-icon">
+                                                        <a href="#">
+                                                            <i class="far fa-trash-alt"></i>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="total-price">
+                                                        <span class="f-left">Total:</span>
+                                                        <span class="f-right">80.00DNT</span>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkout-link">
+                                                        <a href=href={{path('cart_index')}}>Panier</a>
+                                                        <a class="red-color" href="checkout.html">Checkout</a>
+                                                    </div>
+                                                </li>
+                                            
+                                            </ul>
+                                        </li>
+                                        <li class="header-search"><a href="#" data-toggle="modal"
+                                                data-target="#search-modal"><i class="fas fa-search"></i></a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="mobile-menu"></div>
+                    </div>
+                    <!-- Modal Search -->
+                    <div class="modal fade" id="search-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <form>
+                                    <input type="text" placeholder="Search here...">
+                                    <button><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-area-end -->
+    {% block body %}
+    <!-- main-area -->
+    <main>
+
+        <!-- slider-area -->
+        <section class="slider-area slider-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-9">
+                        <div class="slider-content text-center">
+                            <h6 class="wow fadeInDown" data-wow-delay=".2s">TIR-X</h6>
+                            <h2 class="tlt fix" data-in-effect="fadeInLeft">Tir <span>sportif</span></h2>
+                            <p class="wow fadeInUp" data-wow-delay="2s">La passion est un désir qui se mue en plaisir, qui vibre à l'unisson d'un rêve que l'on touche du bout du coeur.</p>
+                            <a href={{path('app_about')}} class="btn wow fadeInUp" data-wow-delay="2.2s">
+                                En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- slider-area-end -->
+
+        <!-- brand-area -->
+        <div class="sharethis-inline-share-buttons"></div>
+        <div class="brand-area brand-bg">
+            <div class="container">
+                <div class="row brand-active">
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo01.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo02.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo03.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo04.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo05.png')}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xl-2">
+                        <div class="brand-item">
+                            <img src="{{asset('front-office/img/brand/brand_logo06.png')}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand-area-end -->
+
+        <!-- area-bg-one -->
+        <div class="area-bg-one">
+
+            <!-- latest-games-area -->
+            
+            <!-- latest-games-area-end -->
+
+            <!-- about-us-area -->
+            <section class="about-us-area pt-90 pb-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 order-0 order-lg-2">
+                            <div class="about-img">
+                                <img src="{{asset('front-office/img/images/about_us_img.jpg')}}" alt="">
+                                <a href="https://www.youtube.com/watch?v=_Q2f_sFlyHM" class="popup-video"><img
+                                        src="{{asset('front-office/img/icon/play_btn.png')}}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="section-title title-style-two mb-45">
+                                <span>about tir sportif</span>
+                                <h2>Exemple des <span>Tournois</span> en Tunisie</h2>
+                            </div>
+                            <div class="about-content">
+                                <p>Le tir sportif est un sport individuel qui consiste à envoyer, au moyen d'une arme à feu, un projectile sur une cible le plus précisément possible pour toucher le centre de celle-ci et obtenir un maximum de points.</p>
+                                <p></p>
+                                <div class="about-btn">
+                                    <a href={{path('app_about')}} class="btn">En savoir plus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- about-us-area-end -->
+
+        </div>
+        <!-- area-bg-one-end -->
+
+     
+
+    
+
+        <!-- area-bg-two -->
+        <div class="area-bg-two">
+
+            <!-- shop-area -->
+            <section class="features-area features-bg pt-120 pb-70">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-7 col-lg-8">
+                            <div class="section-title title-style-two text-center mb-30">
+                                <span>Tir accessories</span>
+                                <h2>Notre Produits <span>Tir-x</span></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row product-active">
+                        <div class="col-xl-3">
+                            <div class="shop-item">
+                                <div class="product-thumb">
+                                    <a href="#"><img src="{{asset('front-office/img/product/product_img01.jpg')}}" alt="" height="220"></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-tag"><a href="#">Arc</a></div>
+                                    <h4><a href="#">Arc tir a l'arc club 900</a></h4>
+                                    <div class="product-meta">
+                                        <div class="product-price">
+                                            <h5>29.00DNT</h5>
+                                        </div>
+                                        <div class="product-cart-action">
+                                            <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="shop-item">
+                                <div class="product-thumb">
+                                    <a href="#"><img src="{{asset('front-office/img/product/product_img02.jpg')}}" alt="" height="220"></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-tag"><a href="#">casque</a></div>
+                                    <h4><a href="#">casque de ball trap</a></h4>
+                                    <div class="product-meta">
+                                        <div class="product-price">
+                                            <h5>100.00DNT</h5>
+                                        </div>
+                                        <div class="product-cart-action">
+                                            <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="shop-item">
+                                <div class="product-thumb">
+                                    <a href="#"><img src="{{asset('front-office/img/product/product_img03.jpg')}}" alt="" height="220"></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-tag"><a href="#">gilet</a></div>
+                                    <h4><a href="#">gilet de tir fair</a></h4>
+                                    <div class="product-meta">
+                                        <div class="product-price">
+                                            <h5>80.00DNT</h5>
+                                        </div>
+                                        <div class="product-cart-action">
+                                            <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3">
+                            <div class="shop-item">
+                                <div class="product-thumb">
+                                    <a href="#"><img src="{{asset('front-office/img/product/product_img04.jpg')}}" alt="" height="220"></a>
+                                </div>
+                                <div class="product-content">
+                                    <div class="product-tag"><a href="#">Etui</a></div>
+                                    <h4><a href="#">Etui pour fusil OD</a></h4>
+                                    <div class="product-meta">
+                                        <div class="product-price">
+                                            <h5>150.00DNT</h5>
+                                        </div>
+                                        <div class="product-cart-action">
+                                            <a href="#"><i class="fas fa-shopping-basket"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </section>
+            <!-- shop-area-end -->
+
+    
+
+        </div>
+        <!-- area-bg-two-end -->
+
+    </main>
+    <!-- main-area-end -->
+    {% endblock %}
+    {% block footer %}
+
+    <!-- footer-area -->
+    <footer>
+        <div class="footer-top footer-bg">
+            <!-- newsletter-area -->
+            <div class="newsletter-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- newsletter-area-end -->
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-widget mb-50">
+                            <div class="footer-logo mb-35">
+                                <a href="index.html"><img src="{{asset('front-office/img/logo/logo.png')}}" alt=""></a>
+                            </div>
+                            <div class="footer-text">
+                                <p>Application de gestion des clubs et de vente des produits de tir sportif.</p>
+                                <div class="footer-contact">
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i> <span>Address : </span>Tunis Ariana 
+                                          
+                                            </li>
+                                        <li><i class="fas fa-headphones"></i> <span>Phone : </span>+99 999 999</li>
+                                        <li><i class="fas fa-envelope-open"></i><span>Email : </span><a
+                                                href="https://themebeyond.com/cdn-cgi/l/email-protection"
+                                                class="__cf_email__"
+                                                data-cfemail="bdd4d3dbd2fdd8c5d8d0cdd1d893ded2d0">tir-x@gmail.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>Pages</h5>
+                            </div>
+                            <div class="fw-link">
+                                <ul>
+                                        <li><a href={{path('app_home')}}>ACCEUIL</a></li>
+                                        <li><a href={{path('app_club_indexx')}}>CLUB</a></li>
+                                        <li><a href={{path('app_tournois')}}>TOURNOIS</a></li>
+                                        <li><a href={{path('app_home_magasin')}}>MAGASIN</a></li>
+                                        <li><a href={{path('app_reclamation')}}>RECLAMATION</a></li>
+                                        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-sm-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>
+                                    Besoin d'aide?</h5>
+                            </div>
+                            <div class="fw-link">
+                                <ul>
+                                    <li><a href={{path('app_about')}}>ABOUT</a></li>
+                                    
+                                    <li><a href={{path('app_profile')}}>Profile</a></li>
+                                    
+                                  
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="footer-widget mb-50">
+                            <div class="fw-title mb-35">
+                                <h5>
+                                    Suivez-nous</h5>
+                            </div>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="footer-fire"><img src="{{asset('front-office/img/images/footer_fire.png')}}" alt=""></div>
+            <div class="footer-fire footer-fire-right"><img src="{{asset('front-office/img/images/footer_fire.png')}}" alt=""></div>
+        </div>
+        
+    </footer>
+    <!-- footer-area-end -->
+    {% endblock %}
+
+
+
+    {% block js %}
+    <!-- JS here -->
+    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{asset('front-office/js/vendor/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('front-office/js/popper.min.js')}}"></script>
+    <script src="{{asset('front-office/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front-office/js/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/slick.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.meanmenu.min.js')}}"></script>
+    <script src="{{asset('front-office/js/wow.min.js')}}"></script>
+    <script src="{{asset('front-office/js/aos.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.lettering.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.textillate.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.odometer.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.appear.js')}}"></script>
+    <script src="{{asset('front-office/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.countdown.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.scrollUp.min.js')}}"></script>
+    <script src="{{asset('front-office/js/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{asset('front-office/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{asset('front-office/js/plugins.js')}}"></script>
+    <script src="{{asset('front-office/js/main.js')}}"></script>
+
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=64068a5da0932a001aed0d7c&product=inline-share-buttons&source=platform" async="async"></script>
+     <script>
+    //ORDERS
+    $(function() {
+  $('#filter-form').on('submit', function(event) {
+    event.preventDefault();
+    var startDate = $('#start-date').val();
+    var endDate = $('#end-date').val();
+    var url = `http://127.0.0.1:8000/order/filter?start_date=${startDate}&end_date=${endDate}`;
+console.log("hoo",startDate);
+    $.get(url, function(data) {
+      var orderList = $('#order-list');
+      orderList.html('');
+      console.log("hoo",data);
+      $.each(data, function(key, order) {
+        var html = '<div class="card">';
+        html += '<div class="card-body">';
+        html += '<h5 class="card-title">Order #' + order.id + '</h5>';
+        html += '<p class="card-text">Address: ' + order.Adresse + '</p>';
+        html += '<p class="card-text">Time: ' + order.time + '</p>';
+        html += '</div>';
+        html += '</div>';
+        orderList.append(html);
+      });
+    });
+  });
+});
+</script>
+     <script>
+    
+        $(function() {
+            $('#filter-form').on('submit', function(event) {
+                event.preventDefault();
+                var category = $('#category').val();
+                var minprice = $('#min-price').val();
+                var maxprice = $('#max-price').val();
+
+                var formData = $(this).serialize();
+                console.log('form' ,category)
+
+        var url = `http://127.0.0.1:8000/home/filter?category=${category}&minPrice=${minprice}&maxPrice=${maxprice}`;
+        console.log("url",url)
+                $.post(url, formData, function(data) {
+                    console.log('data',data);
+                    var productList = $('#product-list');
+                    productList.html('');
+                    
+                   
+                        
+                        $.each(data, function(key, product) {
+                            console.log(product.category.name);
+  var html = '<div class="col-lg-4 col-md-6 mb-4">';
+  html += '<div class="card h-100">';
+  html += '<a href="#"><img style="height: 200px; object-fit: cover;" src="' + product.img + '" alt=""></a>';
+  html += '<div class="card-body">';
+   html += '<p style="color:black!important" class="card-text">' + product.title + '</p>';
+  html += '<p style="color:black!important" class="card-text">Price: $' + product.price + '</p>';
+  html += '</div>';
+  html += '<div class="card-footer">';
+  html += '<div class="d-flex justify-content-between">';
+  html += '<small class="text-muted">' + product.category.name + '</small>';
+  html += '<div class="text-warning">';
+  for (var i = 0; i < product.rating; i++) {
+    html += '<i class="fas fa-star"></i>';
+  }
+  html += '</div>';
+  html += '</div>';
+  html += '<div class="d-flex justify-content-between align-items-center mt-2">';
+  html += '<a href="#">View Details</a>';
+  html += '<a href="{{ path("cart_add", {id: ' + product.id + '}) }}" class="add-to-cart-icon"><i class="fas fa-shopping-cart"></i></a>';
+  html += '<a href="{{ path('cart_wishlist_add', { 'productId': ' + product.id + ' }) }}"><i class="far fa-heart"></i></a>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  html += '</div>';
+  productList.append(html);
+});
+
+                    });
+                });
+            });
+       
+    </script>
+     {% endblock %}
+</body>
+
+
+
+</html>

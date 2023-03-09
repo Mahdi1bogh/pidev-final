@@ -1,0 +1,27 @@
+{% block title %}
+    Liste des clubs
+{% endblock %}
+
+{% block content %}
+    <h1 style="font-size: 28px; margin-bottom: 20px; color: #333;">Liste des clubs</h1>
+    <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f9fafb;">
+                <th style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd; font-weight: bold;">Id</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd; font-weight: bold;">Nom</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd; font-weight: bold;">Localisation</th>
+                <th style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd; font-weight: bold;">Terrain</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for club in clubs %}
+                <tr style="background-color:  #red; ">
+                    <td style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd;">{{ club.id }}</td>
+                    <td style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd;">{{ club.name }}</td>
+                    <td style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd;">{{ club.location }}</td>
+                    <td style="padding: 15px; text-align: left; border-bottom: 1px solid #ddd;">{{ club.terain }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

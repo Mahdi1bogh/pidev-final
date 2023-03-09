@@ -1,0 +1,23 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block body %}
+<div class="container" style="margin-bottom:50px">
+    <div class="row">
+    <h1>Edit Product</h1>
+    <ul style="margin-top:50px;margin-left:300px ">
+        <div style="display:flex">
+        <a style="margin-right:20px" href={{path("app_product_index")}}>All products</a>
+        <a href={{path("app_product_new")}}>Add product </a>
+        
+        {{ include('product/_delete_form.html.twig') }}
+        </div>
+    </ul>
+    {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_product_index') }}">back to list</a>
+
+    </div>
+    </div>
+{% endblock %}

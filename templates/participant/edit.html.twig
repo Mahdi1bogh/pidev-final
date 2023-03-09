@@ -1,0 +1,52 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Modifier Participant{% endblock %}
+
+{% block body %}
+    
+
+      <!-- Begin page -->
+        <div id="layout-wrapper">
+
+
+            <!-- ========== App Menu ========== -->
+           
+            <!-- Left Sidebar End -->
+            <!-- Vertical Overlay-->
+            
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                        <!-- start page title -->
+                
+                <h1>Edit Participant</h1>
+
+    {{ include('participant/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_participant_index') }}" class="btn btn-primary waves-effect waves-light" >back to list</a>
+
+    
+                <!-- End Page-content -->
+
+               
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        
+
+
+
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

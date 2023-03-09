@@ -1,0 +1,35 @@
+
+
+
+<div class="form-container">
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+ <div class="form-group">
+       
+        {{ form_label(form.dateP) }}
+        {{ form_widget(form.dateP, {'attr': {'class': 'inp', 'placeholder': 'dateP'}}) }}
+        {{ form_errors(form.dateP) }}
+    </div>
+     <div class="form-group">
+       
+        {{ form_label(form.tournois) }}
+        {{ form_widget(form.tournois, {'attr': {'class': 'inp', 'placeholder': 'tournois'}}) }}
+        {{ form_errors(form.tournois) }}
+    </div>
+
+    <div class="form-group">
+       
+        {{ form_label(form.users) }}
+        {{ form_widget(form.users, {'attr': {'class': 'inp', 'placeholder': 'users'}}) }}
+        {{ form_errors(form.users) }}
+    </div>
+ 
+   
+       
+       
+   
+    <button class="btn btn-success waves-effect waves-light">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<br>
+<br>
+<br>
+</div>
